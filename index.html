@@ -1,6 +1,4 @@
-from pathlib import Path
-
-html = r'''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -26,14 +24,13 @@ h1{font-size:clamp(52px,9vw,105px);letter-spacing:5px;margin-bottom:22px}h1 span
 .status{display:inline-flex;align-items:center;gap:9px;background:#111119;border:1px solid #292933;border-radius:30px;padding:10px 18px;color:#aaa;margin-bottom:25px}
 .dot{width:10px;height:10px;border-radius:50%;background:#888}.dot.online{background:#31d158;box-shadow:0 0 13px #31d158}.dot.offline{background:#ff3b30;box-shadow:0 0 13px #ff3b30}
 .buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn{min-width:175px;padding:15px 22px;border-radius:12px;border:1px solid #30303a;background:#15151d;color:#fff;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+.btn{min-width:175px;padding:15px 22px;border-radius:12px;border:1px solid #30303a;background:#15151d;color:#fff;font-weight:bold;cursor:pointer}
 .btn:hover{transform:translateY(-2px)}.discord{background:#5865f2;border-color:#5865f2}.shop{background:#ff3b30;border-color:#ff3b30}
 .container{max-width:1100px;margin:auto;padding:75px 20px}.title{text-align:center;margin-bottom:38px}.title h2{font-size:38px;margin-bottom:10px}.title p{color:#777}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#111119;border:1px solid #292933;border-radius:18px;padding:28px;text-align:center}.icon{font-size:38px;margin-bottom:12px}.value{font-size:30px;font-weight:900;margin-bottom:7px}.label{color:#777}
 .progress{max-width:900px;margin:20px auto 0;background:#111119;border:1px solid #292933;border-radius:18px;padding:22px}.ptop{display:flex;justify-content:space-between;color:#aaa;margin-bottom:10px}.bar{height:12px;background:#22222b;border-radius:20px;overflow:hidden}.fill{height:100%;width:0;background:#31d158;transition:.4s}.update{text-align:center;color:#666;font-size:12px;margin-top:10px}
 .rules,.guide{max-width:850px;margin:auto}.rule,.step{background:#111119;border:1px solid #292933;border-radius:15px;padding:20px;margin-bottom:12px}.rule{display:flex;gap:15px}.num{min-width:40px;height:40px;background:#351316;color:#ff625a;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:bold}.rule p,.step p{color:#777;line-height:1.6;margin-top:6px}
-code{display:block;margin-top:12px;background:#08080d;padding:12px;border-radius:8px;color:#ff625a;font-family:monospace}
-footer{text-align:center;padding:40px 20px;color:#555;border-top:1px solid #191920}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,100px);opacity:0;background:#171720;border:1px solid #353541;padding:13px 20px;border-radius:10px;transition:.3s;z-index:99}.toast.show{transform:translate(-50%,0);opacity:1}
+footer{text-align:center;padding:40px 20px;color:#555;border-top:1px solid #191920}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,100px);opacity:0;background:#171720;border:1px solid #353541;padding:13px 20px;border-radius:10px;transition:.3s}.toast.show{transform:translate(-50%,0);opacity:1}
 @media(max-width:750px){.header{height:auto;min-height:125px;padding-top:60px}.logo{top:15px;left:50%;transform:translateX(-50%)}nav{flex-wrap:wrap}.grid{grid-template-columns:1fr}.ipbox{flex-direction:column}.copy,.btn{width:100%}.buttons{flex-direction:column}.hero{min-height:600px}}
 </style>
 </head>
@@ -61,7 +58,7 @@ footer{text-align:center;padding:40px 20px;color:#555;border-top:1px solid #1919
 </div></section>
 
 <section id="online"><div class="container">
-<div class="title"><h2>🟢 Статистика онлайна</h2><p>Онлайн берётся напрямую из API статуса Minecraft-сервера</p></div>
+<div class="title"><h2>🟢 Статистика онлайна</h2><p>Актуальная информация о сервере</p></div>
 <div class="grid">
 <div class="card"><div class="icon">🟢</div><div id="serverStatus" class="value">Проверка...</div><div class="label">Статус сервера</div></div>
 <div class="card"><div class="icon">👥</div><div id="players" class="value">— / —</div><div class="label">Игроков онлайн</div></div>
@@ -99,16 +96,7 @@ footer{text-align:center;padding:40px 20px;color:#555;border-top:1px solid #1919
 
 <script>
 const IP="NetherWorld1.aternos.me:59752";
-
-/*
-  Используем mcsrvstat.us.
-  Он возвращает реальный текущий online/max для Java-сервера.
-  Важно: Aternos-сервер должен быть ЗАПУЩЕН.
-*/
-const APIS=[
-  "https://api.mcsrvstat.us/3/"+encodeURIComponent(IP),
-  "https://api.mcsrvstat.us/3/"+encodeURIComponent("NetherWorld1.aternos.me")
-];
+const API="https://api.mcsrvstat.us/3/"+encodeURIComponent(IP);
 
 function go(id,btn){
  const el=document.getElementById(id);
@@ -116,116 +104,41 @@ function go(id,btn){
  document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
  if(btn)btn.classList.add("active");
 }
-
 function copyIP(){
- navigator.clipboard?.writeText(IP)
-   .then(()=>toast("✅ IP скопирован!"))
-   .catch(()=>toast(IP));
+ navigator.clipboard?.writeText(IP).then(()=>toast("✅ IP скопирован!")).catch(()=>toast(IP));
 }
-
 function toast(t){
- const x=document.getElementById("toast");
- x.textContent=t;
- x.classList.add("show");
+ const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");
  setTimeout(()=>x.classList.remove("show"),2200);
 }
-
-function setOffline(message){
- document.getElementById("heroDot").className="dot offline";
- document.getElementById("heroStatus").textContent="🔴 "+message;
- document.getElementById("serverStatus").textContent="ОФЛАЙН";
- document.getElementById("players").textContent="0 / —";
- document.getElementById("fill").style.width="0%";
- document.getElementById("percent").textContent="0%";
- document.getElementById("update").textContent="Последнее обновление: "+new Date().toLocaleTimeString("ru-RU");
-}
-
-async function fetchWithTimeout(url){
- const controller=new AbortController();
- const timer=setTimeout(()=>controller.abort(),8000);
- try{
-   const response=await fetch(url+"?t="+Date.now(),{
-     cache:"no-store",
-     signal:controller.signal
-   });
-   clearTimeout(timer);
-   if(!response.ok)throw new Error("HTTP "+response.status);
-   return await response.json();
- }catch(e){
-   clearTimeout(timer);
-   throw e;
- }
-}
-
 async function update(){
- const dot=document.getElementById("heroDot");
- const hs=document.getElementById("heroStatus");
- const ss=document.getElementById("serverStatus");
- const pl=document.getElementById("players");
- const ver=document.getElementById("version");
- const fill=document.getElementById("fill");
- const pct=document.getElementById("percent");
- const upd=document.getElementById("update");
-
- let d=null;
- let lastError=null;
-
- for(const api of APIS){
-   try{
-     d=await fetchWithTimeout(api);
-     break;
-   }catch(e){
-     lastError=e;
-   }
- }
-
- if(!d){
-   dot.className="dot offline";
-   hs.textContent="⚠️ Не удалось проверить сервер";
-   ss.textContent="НЕДОСТУПЕН";
-   pl.textContent="— / —";
-   fill.style.width="0%";
-   pct.textContent="—";
-   upd.textContent="Ошибка соединения с API";
-   console.error(lastError);
-   return;
- }
-
- if(d.online===true){
-   dot.className="dot online";
-   hs.textContent="🟢 Сервер онлайн";
-   ss.textContent="ОНЛАЙН";
-
-   const on=Number(d.players?.online ?? 0);
-   const max=Number(d.players?.max ?? 0);
-
+ const dot=document.getElementById("heroDot"), hs=document.getElementById("heroStatus");
+ const ss=document.getElementById("serverStatus"), pl=document.getElementById("players");
+ const ver=document.getElementById("version"), fill=document.getElementById("fill");
+ const pct=document.getElementById("percent"), upd=document.getElementById("update");
+ try{
+  const r=await fetch(API+"?t="+Date.now());
+  if(!r.ok)throw Error("HTTP "+r.status);
+  const d=await r.json();
+  if(d.online){
+   dot.className="dot online";hs.textContent="🟢 Сервер онлайн";ss.textContent="ОНЛАЙН";
+   const on=d.players?.online ?? 0, max=d.players?.max ?? 0;
    pl.textContent=on+" / "+(max||"—");
-
    if(d.version)ver.textContent=d.version;
-
-   const p=max>0?Math.min(100,(on/max)*100):0;
-   fill.style.width=p+"%";
-   pct.textContent=max?Math.round(p)+"%":"—";
-
-   if(d.players?.list?.length){
-     console.log("Игроки онлайн:",d.players.list);
-   }
- }else{
-   setOffline("Сервер офлайн");
-   if(d.version)ver.textContent=d.version;
-   return;
+   const p=max?Math.min(100,on/max*100):0;
+   fill.style.width=p+"%";pct.textContent=max?Math.round(p)+"%":"—";
+  }else{
+   dot.className="dot offline";hs.textContent="🔴 Сервер офлайн";ss.textContent="ОФЛАЙН";
+   pl.textContent="0 / —";fill.style.width="0%";pct.textContent="0%";
+  }
+  upd.textContent="Последнее обновление: "+new Date().toLocaleTimeString("ru-RU");
+ }catch(e){
+  dot.className="dot offline";hs.textContent="⚠️ Статус недоступен";ss.textContent="НЕДОСТУПЕН";
+  pl.textContent="— / —";fill.style.width="0%";pct.textContent="—";upd.textContent="Не удалось получить статус";
+  console.error(e);
  }
-
- upd.textContent="Последнее обновление: "+new Date().toLocaleTimeString("ru-RU");
 }
-
-update();
-setInterval(update,15000);
+update();setInterval(update,30000);
 </script>
 </body>
 </html>
-'''
-
-path = Path("/mnt/data/nether-world-real-online.html")
-path.write_text(html, encoding="utf-8")
-print(f"Готово: {path}")
