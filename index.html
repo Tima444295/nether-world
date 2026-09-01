@@ -5,16 +5,14 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NETHER WORLD</title>
 
-<style>
+<!-- ИКОНКА ОСКОЛКА НЕЗЕРИТА -->
+<link rel="icon" type="image/png" href="netherite_scrap.png">
 
-/* =========================================================
-   ОСНОВА
-========================================================= */
+<style>
 
 *{
     box-sizing:border-box;
@@ -51,9 +49,9 @@ body{
 }
 
 
-/* =========================================================
-   PIXEL EFFECT
-========================================================= */
+/* =========================================
+   PIXEL OVERLAY
+========================================= */
 
 body::before{
 
@@ -109,9 +107,9 @@ body::after{
 }
 
 
-/* =========================================================
+/* =========================================
    HEADER
-========================================================= */
+========================================= */
 
 header{
 
@@ -126,9 +124,7 @@ header{
     border-bottom:5px solid #080808;
 
     box-shadow:
-
         0 5px 0 #713b18,
-
         0 10px 30px #000;
 
 }
@@ -164,13 +160,10 @@ nav{
     font-weight:900;
 
     text-shadow:
-
         4px 4px #351303,
-
         7px 7px #000;
 
     animation:
-
         logoFloat 3s ease-in-out infinite;
 
 }
@@ -227,17 +220,15 @@ nav a.active{
     border-color:#bd7435;
 
     box-shadow:
-
         4px 4px #000,
-
         0 0 12px rgba(255,140,50,.25);
 
 }
 
 
-/* =========================================================
+/* =========================================
    HERO
-========================================================= */
+========================================= */
 
 .hero{
 
@@ -283,7 +274,6 @@ nav a.active{
         );
 
     animation:
-
         heroGlow 5s ease-in-out infinite alternate;
 
     pointer-events:none;
@@ -294,19 +284,13 @@ nav a.active{
 @keyframes heroGlow{
 
     from{
-
         transform:scale(.75);
-
         opacity:.5;
-
     }
 
     to{
-
         transform:scale(1.3);
-
         opacity:1;
-
     }
 
 }
@@ -325,7 +309,6 @@ nav a.active{
     margin-bottom:25px;
 
     animation:
-
         fadeDown 1s ease;
 
 }
@@ -334,19 +317,13 @@ nav a.active{
 @keyframes fadeDown{
 
     from{
-
         opacity:0;
-
         transform:translateY(-30px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
 
 }
@@ -359,25 +336,16 @@ h1{
     z-index:2;
 
     font-size:
-
-        clamp(
-            42px,
-            8vw,
-            85px
-        );
+        clamp(42px,8vw,85px);
 
     color:#ff9d20;
 
     text-shadow:
-
         7px 7px #381403,
-
         11px 11px #000;
 
     animation:
-
         titleAppear 1.2s cubic-bezier(.2,.8,.2,1),
-
         titleFloat 4s ease-in-out 1.2s infinite;
 
 }
@@ -386,41 +354,25 @@ h1{
 @keyframes titleAppear{
 
     0%{
-
         opacity:0;
-
         transform:
-
             translateY(80px)
-
             scale(.65);
-
         filter:blur(8px);
-
     }
 
     70%{
-
         transform:
-
             translateY(-8px)
-
             scale(1.05);
-
     }
 
     100%{
-
         opacity:1;
-
         transform:
-
             translateY(0)
-
             scale(1);
-
         filter:blur(0);
-
     }
 
 }
@@ -429,15 +381,11 @@ h1{
 @keyframes titleFloat{
 
     0%,100%{
-
         transform:translateY(0);
-
     }
 
     50%{
-
         transform:translateY(-7px);
-
     }
 
 }
@@ -460,7 +408,6 @@ h1{
     margin:30px 0;
 
     animation:
-
         fadeUp 1s .4s backwards;
 
 }
@@ -469,27 +416,21 @@ h1{
 @keyframes fadeUp{
 
     from{
-
         opacity:0;
-
         transform:translateY(30px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
 
 }
 
 
-/* =========================================================
+/* =========================================
    BUTTONS
-========================================================= */
+========================================= */
 
 .buttons{
 
@@ -531,63 +472,43 @@ h1{
     box-shadow:5px 5px #000;
 
     transition:
-
         transform .2s,
-
         box-shadow .2s,
-
         background .2s;
 
     animation:
-
         buttonAppear .8s backwards;
 
 }
 
 
 .btn:nth-child(1){
-
     animation-delay:.3s;
-
 }
 
 .btn:nth-child(2){
-
     animation-delay:.45s;
-
 }
 
 .btn:nth-child(3){
-
     animation-delay:.6s;
-
 }
 
 
 @keyframes buttonAppear{
 
     from{
-
         opacity:0;
-
         transform:
-
             translateY(35px)
-
             scale(.75);
-
     }
 
     to{
-
         opacity:1;
-
         transform:
-
             translateY(0)
-
             scale(1);
-
     }
 
 }
@@ -608,7 +529,6 @@ h1{
     height:100%;
 
     background:
-
         linear-gradient(
             90deg,
             transparent,
@@ -624,24 +544,18 @@ h1{
 
 
 .btn:hover::before{
-
     left:140%;
-
 }
 
 
 .btn:hover{
 
     transform:
-
         translateY(-5px)
-
         scale(1.04);
 
     box-shadow:
-
         5px 5px #000,
-
         0 0 25px rgba(255,150,50,.45);
 
 }
@@ -654,9 +568,7 @@ h1{
     border-color:#9299ff;
 
     box-shadow:
-
         5px 5px #000,
-
         0 0 25px rgba(88,101,242,.7);
 
 }
@@ -669,17 +581,15 @@ h1{
     border-color:#ff9d5c;
 
     box-shadow:
-
         5px 5px #000,
-
         0 0 25px rgba(255,100,40,.7);
 
 }
 
 
-/* =========================================================
+/* =========================================
    SECTIONS
-========================================================= */
+========================================= */
 
 section{
 
@@ -699,9 +609,7 @@ section{
     border:5px solid #070707;
 
     box-shadow:
-
         0 0 0 3px #74401e,
-
         9px 9px #000;
 
     padding:30px;
@@ -714,11 +622,8 @@ section{
 .panel:hover{
 
     box-shadow:
-
         0 0 0 3px #925126,
-
         12px 12px #000,
-
         0 0 30px rgba(150,70,20,.18);
 
 }
@@ -733,7 +638,6 @@ section{
     font-weight:bold;
 
     text-shadow:
-
         3px 3px #351303;
 
     margin-bottom:30px;
@@ -741,16 +645,15 @@ section{
 }
 
 
-/* =========================================================
+/* =========================================
    CARDS
-========================================================= */
+========================================= */
 
 .grid{
 
     display:grid;
 
     grid-template-columns:
-
         repeat(
             auto-fit,
             minmax(230px,1fr)
@@ -770,9 +673,7 @@ section{
     border:4px solid #111;
 
     box-shadow:
-
         inset 0 0 0 3px #555,
-
         5px 5px #000;
 
     padding:23px;
@@ -785,17 +686,12 @@ section{
 .card:hover{
 
     transform:
-
         translateY(-8px)
-
         scale(1.02);
 
     box-shadow:
-
         inset 0 0 0 3px #777,
-
         7px 10px #000,
-
         0 0 25px rgba(255,150,40,.2);
 
 }
@@ -821,9 +717,9 @@ section{
 }
 
 
-/* =========================================================
+/* =========================================
    IP
-========================================================= */
+========================================= */
 
 .ip{
 
@@ -846,7 +742,6 @@ section{
     user-select:all;
 
     animation:
-
         ipPulse 2.5s ease-in-out infinite;
 
 }
@@ -855,29 +750,22 @@ section{
 @keyframes ipPulse{
 
     0%,100%{
-
         box-shadow:
-
             inset 0 0 20px #0b330b;
-
     }
 
     50%{
-
         box-shadow:
-
             inset 0 0 30px #145214,
-
             0 0 20px rgba(80,255,80,.2);
-
     }
 
 }
 
 
-/* =========================================================
+/* =========================================
    RULES
-========================================================= */
+========================================= */
 
 .rules{
 
@@ -893,7 +781,6 @@ section{
     display:grid;
 
     grid-template-columns:
-
         55px 1fr 210px;
 
     gap:18px;
@@ -903,7 +790,6 @@ section{
     padding:20px 5px;
 
     border-bottom:
-
         2px dashed #70421f;
 
     opacity:0;
@@ -911,11 +797,8 @@ section{
     transform:translateX(-60px);
 
     transition:
-
         opacity .7s ease,
-
         transform .7s ease,
-
         background .3s;
 
 }
@@ -931,89 +814,62 @@ section{
 
 
 .reveal.show .rule:nth-child(1){
-
     transition-delay:.05s;
-
 }
 
 .reveal.show .rule:nth-child(2){
-
     transition-delay:.10s;
-
 }
 
 .reveal.show .rule:nth-child(3){
-
     transition-delay:.15s;
-
 }
 
 .reveal.show .rule:nth-child(4){
-
     transition-delay:.20s;
-
 }
 
 .reveal.show .rule:nth-child(5){
-
     transition-delay:.25s;
-
 }
 
 .reveal.show .rule:nth-child(6){
-
     transition-delay:.30s;
-
 }
 
 .reveal.show .rule:nth-child(7){
-
     transition-delay:.35s;
-
 }
 
 .reveal.show .rule:nth-child(8){
-
     transition-delay:.40s;
-
 }
 
 .reveal.show .rule:nth-child(9){
-
     transition-delay:.45s;
-
 }
 
 .reveal.show .rule:nth-child(10){
-
     transition-delay:.50s;
-
 }
 
 .reveal.show .rule:nth-child(11){
-
     transition-delay:.55s;
-
 }
 
 .reveal.show .rule:nth-child(12){
-
     transition-delay:.60s;
-
 }
 
 
 .rule:last-child{
-
     border-bottom:none;
-
 }
 
 
 .rule:hover{
 
     background:
-
         linear-gradient(
             90deg,
             rgba(120,60,20,.2),
@@ -1021,7 +877,6 @@ section{
         );
 
     transform:
-
         translateX(8px) !important;
 
 }
@@ -1059,15 +914,11 @@ section{
     background:#8b4b23;
 
     transform:
-
         rotate(-5deg)
-
         scale(1.1);
 
     box-shadow:
-
         4px 4px #000,
-
         0 0 15px rgba(255,150,50,.4);
 
 }
@@ -1123,30 +974,25 @@ section{
     transform:scale(1.04);
 
     box-shadow:
-
         0 0 18px rgba(255,70,20,.3);
 
 }
 
 
-/* =========================================================
+/* =========================================
    REVEAL
-========================================================= */
+========================================= */
 
 .reveal{
 
     opacity:0;
 
     transform:
-
         translateY(70px)
-
         scale(.97);
 
     transition:
-
         opacity .9s ease,
-
         transform .9s cubic-bezier(.2,.8,.2,1);
 
 }
@@ -1157,22 +1003,18 @@ section{
     opacity:1;
 
     transform:
-
         translateY(0)
-
         scale(1);
 
 }
 
 
-/* =========================================================
+/* =========================================
    CONTACTS
-========================================================= */
+========================================= */
 
 .contact-card{
-
     text-align:center;
-
 }
 
 
@@ -1187,9 +1029,9 @@ section{
 }
 
 
-/* =========================================================
+/* =========================================
    FOOTER
-========================================================= */
+========================================= */
 
 footer{
 
@@ -1208,21 +1050,17 @@ footer{
 }
 
 
-/* =========================================================
+/* =========================================
    SCROLLBAR
-========================================================= */
+========================================= */
 
 ::-webkit-scrollbar{
-
     width:12px;
-
 }
 
 
 ::-webkit-scrollbar-track{
-
     background:#080808;
-
 }
 
 
@@ -1236,15 +1074,13 @@ footer{
 
 
 ::-webkit-scrollbar-thumb:hover{
-
     background:#a75b28;
-
 }
 
 
-/* =========================================================
+/* =========================================
    MOBILE
-========================================================= */
+========================================= */
 
 @media(max-width:750px){
 
@@ -1276,37 +1112,28 @@ footer{
 
 
     .hero{
-
         min-height:600px;
-
     }
 
 
     .hero-text{
-
         font-size:15px;
-
     }
 
 
     .panel{
-
         padding:18px;
-
     }
 
 
     .title{
-
         font-size:22px;
-
     }
 
 
     .rule{
 
         grid-template-columns:
-
             45px 1fr;
 
     }
@@ -1320,17 +1147,15 @@ footer{
 
 
     .card:hover{
-
         transform:none;
-
     }
 
 }
 
 
-/* =========================================================
-   PREFERS REDUCED MOTION
-========================================================= */
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -1354,64 +1179,43 @@ footer{
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================
      HEADER
-===================================================== -->
+========================================= -->
 
 <header>
 
 <nav>
 
 <div class="logo">
-
 ⚔ NETHER WORLD
-
 </div>
 
 
 <ul>
 
 <li>
-
 <a href="#home">
-
 ГЛАВНАЯ
-
 </a>
-
 </li>
 
-
 <li>
-
 <a href="#server">
-
 СЕРВЕР
-
 </a>
-
 </li>
 
-
 <li>
-
 <a href="#rules">
-
 ПРАВИЛА
-
 </a>
-
 </li>
 
-
 <li>
-
 <a href="#contacts">
-
 КОНТАКТЫ
-
 </a>
-
 </li>
 
 </ul>
@@ -1422,9 +1226,9 @@ footer{
 
 
 
-<!-- =====================================================
+<!-- =========================================
      HERO
-===================================================== -->
+========================================= -->
 
 <section
 id="home"
@@ -1500,9 +1304,9 @@ href="#rules"
 
 
 
-<!-- =====================================================
+<!-- =========================================
      SERVER
-===================================================== -->
+========================================= -->
 
 <section
 id="server"
@@ -1525,15 +1329,11 @@ class="reveal"
 <div class="card">
 
 <h3>
-
 ⛏ ВЕРСИЯ
-
 </h3>
 
 <p>
-
 Minecraft Java Edition 1.16.5
-
 </p>
 
 </div>
@@ -1542,16 +1342,12 @@ Minecraft Java Edition 1.16.5
 <div class="card">
 
 <h3>
-
 🌋 РЕЖИМ
-
 </h3>
 
 <p>
-
 Выживание с экономикой,
 боссами и уникальными предметами.
-
 </p>
 
 </div>
@@ -1560,16 +1356,12 @@ Minecraft Java Edition 1.16.5
 <div class="card">
 
 <h3>
-
 ⚔ ОСОБЕННОСТИ
-
 </h3>
 
 <p>
-
 PvP, привилегии, события,
 кастомные предметы и боссы.
-
 </p>
 
 </div>
@@ -1623,9 +1415,9 @@ rel="noopener"
 
 
 
-<!-- =====================================================
+<!-- =========================================
      RULES
-===================================================== -->
+========================================= -->
 
 <section
 id="rules"
@@ -1646,41 +1438,25 @@ class="reveal"
 <div class="rules">
 
 
-<!-- 1 -->
-
 <div class="rule">
 
-<div class="number">
-
-1
-
-</div>
-
+<div class="number">1</div>
 
 <div class="rule-info">
 
-<h3>
-
-🚫 ЧИТЫ И ХАКИ
-
-</h3>
-
+<h3>🚫 ЧИТЫ И ХАКИ</h3>
 
 <p>
-
 Запрещены чит-клиенты, X-Ray,
 KillAura, Fly, Speed, AutoClicker
 и другие программы,
 дающие нечестное преимущество.
-
 </p>
 
 </div>
 
-
 <div class="punishment">
 
-ПЕРВЫЙ РАЗ<br>
 БАН 30 ДНЕЙ<br>
 ПОВТОРНО — НАВСЕГДА
 
@@ -1690,39 +1466,23 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 2 -->
-
 <div class="rule">
 
-<div class="number">
-
-2
-
-</div>
-
+<div class="number">2</div>
 
 <div class="rule-info">
 
-<h3>
-
-💬 ОСКОРБЛЕНИЯ
-
-</h3>
-
+<h3>💬 ОСКОРБЛЕНИЯ</h3>
 
 <p>
-
 Запрещены оскорбления игроков,
 администрации, травля и провокации.
-
 </p>
 
 </div>
 
-
 <div class="punishment">
 
-ПЕРВЫЙ РАЗ<br>
 МУТ 30 МИНУТ<br>
 ПОВТОРНО — 3 ЧАСА
 
@@ -1732,36 +1492,21 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 3 -->
-
 <div class="rule">
 
-<div class="number">
-
-3
-
-</div>
-
+<div class="number">3</div>
 
 <div class="rule-info">
 
-<h3>
-
-📢 СПАМ И ФЛУД
-
-</h3>
-
+<h3>📢 СПАМ И ФЛУД</h3>
 
 <p>
-
 Запрещены повторяющиеся сообщения,
 флуд, CAPS и намеренное
 засорение чата.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -1774,36 +1519,21 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 4 -->
-
 <div class="rule">
 
-<div class="number">
-
-4
-
-</div>
-
+<div class="number">4</div>
 
 <div class="rule-info">
 
-<h3>
-
-📣 РЕКЛАМА
-
-</h3>
-
+<h3>📣 РЕКЛАМА</h3>
 
 <p>
-
 Запрещена реклама других серверов,
 проектов, сайтов и Discord
 без разрешения администрации.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -1816,36 +1546,21 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 5 -->
-
 <div class="rule">
 
-<div class="number">
-
-5
-
-</div>
-
+<div class="number">5</div>
 
 <div class="rule-info">
 
-<h3>
-
-💥 ГРИФЕРСТВО
-
-</h3>
-
+<h3>💥 ГРИФЕРСТВО</h3>
 
 <p>
-
 Запрещено разрушать чужие постройки,
 красть имущество и специально
 мешать игрокам.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -1858,36 +1573,21 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 6 -->
-
 <div class="rule">
 
-<div class="number">
-
-6
-
-</div>
-
+<div class="number">6</div>
 
 <div class="rule-info">
 
-<h3>
-
-🐛 БАГИ И ЭКСПЛОИТЫ
-
-</h3>
-
+<h3>🐛 БАГИ И ЭКСПЛОИТЫ</h3>
 
 <p>
-
 Запрещено использовать ошибки сервера
 для получения предметов, денег
 или преимущества.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -1900,36 +1600,21 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 7 -->
-
 <div class="rule">
 
-<div class="number">
-
-7
-
-</div>
-
+<div class="number">7</div>
 
 <div class="rule-info">
 
-<h3>
-
-💰 ДЮП ПРЕДМЕТОВ
-
-</h3>
-
+<h3>💰 ДЮП ПРЕДМЕТОВ</h3>
 
 <p>
-
 Запрещено дублирование предметов,
 денег и намеренное нарушение
 экономики сервера.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -1942,35 +1627,20 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 8 -->
-
 <div class="rule">
 
-<div class="number">
-
-8
-
-</div>
-
+<div class="number">8</div>
 
 <div class="rule-info">
 
-<h3>
-
-🎭 ОБМАН АДМИНИСТРАЦИИ
-
-</h3>
-
+<h3>🎭 ОБМАН АДМИНИСТРАЦИИ</h3>
 
 <p>
-
 Запрещено выдавать себя за администрацию
 или обманывать игроков ради имущества.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -1983,36 +1653,21 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 9 -->
-
 <div class="rule">
 
-<div class="number">
-
-9
-
-</div>
-
+<div class="number">9</div>
 
 <div class="rule-info">
 
-<h3>
-
-⚔ НАРУШЕНИЯ PvP
-
-</h3>
-
+<h3>⚔ НАРУШЕНИЯ PvP</h3>
 
 <p>
-
 Запрещено злоупотреблять механиками PvP,
 ловушками и телепортациями
 ради обмана игроков.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -2025,36 +1680,21 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 10 -->
-
 <div class="rule">
 
-<div class="number">
-
-10
-
-</div>
-
+<div class="number">10</div>
 
 <div class="rule-info">
 
-<h3>
-
-👑 НЕУВАЖЕНИЕ К АДМИНИСТРАЦИИ
-
-</h3>
-
+<h3>👑 НЕУВАЖЕНИЕ К АДМИНИСТРАЦИИ</h3>
 
 <p>
-
 Запрещены намеренные провокации,
 угрозы и мешательство работе
 администрации.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -2067,35 +1707,20 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 11 -->
-
 <div class="rule">
 
-<div class="number">
-
-11
-
-</div>
-
+<div class="number">11</div>
 
 <div class="rule-info">
 
-<h3>
-
-🔑 КРАЖА АККАУНТА
-
-</h3>
-
+<h3>🔑 КРАЖА АККАУНТА</h3>
 
 <p>
-
 Попытки получить чужой пароль,
 аккаунт или личные данные запрещены.
-
 </p>
 
 </div>
-
 
 <div class="punishment">
 
@@ -2107,40 +1732,24 @@ KillAura, Fly, Speed, AutoClicker
 
 
 
-<!-- 12 -->
-
 <div class="rule">
 
-<div class="number">
-
-12
-
-</div>
-
+<div class="number">12</div>
 
 <div class="rule-info">
 
-<h3>
-
-⚠ ОБХОД НАКАЗАНИЯ
-
-</h3>
-
+<h3>⚠ ОБХОД НАКАЗАНИЯ</h3>
 
 <p>
-
 Запрещено заходить с другого аккаунта
 для обхода действующего бана или мута.
-
 </p>
 
 </div>
 
-
 <div class="punishment">
 
-БАН НАВСЕГДА<br>
-ОБОИХ АККАУНТОВ
+БАН НАВСЕГДА
 
 </div>
 
@@ -2148,7 +1757,6 @@ KillAura, Fly, Speed, AutoClicker
 
 
 </div>
-
 
 
 <p style="
@@ -2157,7 +1765,7 @@ color:#aaa;
 line-height:1.7;
 ">
 
-⚠ Важно: указанные наказания являются базовыми.
+⚠ Важно: наказания являются базовыми.
 За повторные или особо тяжёлые нарушения
 администрация может увеличить срок наказания.
 
@@ -2170,9 +1778,9 @@ line-height:1.7;
 
 
 
-<!-- =====================================================
+<!-- =========================================
      CONTACTS
-===================================================== -->
+========================================= -->
 
 <section
 id="contacts"
@@ -2195,18 +1803,13 @@ class="reveal"
 <div class="card contact-card">
 
 <h3>
-
 🛡 ЖАЛОБА
-
 </h3>
 
-
 <p>
-
 Укажите ник нарушителя,
 описание нарушения
 и приложите доказательства.
-
 </p>
 
 </div>
@@ -2216,18 +1819,13 @@ class="reveal"
 <div class="card contact-card">
 
 <h3>
-
 ⚖ АПЕЛЛЯЦИЯ
-
 </h3>
 
-
 <p>
-
 Если вы считаете наказание ошибочным,
 обратитесь к администрации
 с доказательствами.
-
 </p>
 
 </div>
@@ -2237,19 +1835,13 @@ class="reveal"
 <div class="card contact-card">
 
 <h3>
-
 🐞 БАГ
-
 </h3>
 
-
 <p>
-
 Нашёл баг?
-
 Сообщи администрации
 и не распространяй его.
-
 </p>
 
 </div>
@@ -2297,9 +1889,9 @@ rel="noopener"
 
 
 
-<!-- =====================================================
+<!-- =========================================
      FOOTER
-===================================================== -->
+========================================= -->
 
 <footer>
 
@@ -2313,19 +1905,13 @@ rel="noopener"
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
-/* ==========================================
-   ПОЯВЛЕНИЕ СЕКЦИЙ
-========================================== */
+/* =========================================
+   АНИМАЦИЯ СЕКЦИЙ
+========================================= */
 
-const observer =
-
-new IntersectionObserver(
+const observer = new IntersectionObserver(
 
 (entries)=>{
 
@@ -2357,10 +1943,9 @@ document
 });
 
 
-
-/* ==========================================
+/* =========================================
    АКТИВНАЯ ВКЛАДКА
-========================================== */
+========================================= */
 
 const links =
 document.querySelectorAll("nav a");
@@ -2378,16 +1963,14 @@ window.addEventListener(
 
     sections.forEach(section=>{
 
-        const sectionTop =
+        const top =
             section.offsetTop - 200;
 
 
-        if(
-            window.scrollY >= sectionTop
-        ){
+        if(window.scrollY >= top){
 
             current =
-                section.getAttribute("id");
+                section.id;
 
         }
 
@@ -2413,19 +1996,18 @@ window.addEventListener(
 });
 
 
-
-/* ==========================================
-   ПЛАВНОЕ ДВИЖЕНИЕ HERO
-========================================== */
+/* =========================================
+   ЭФФЕКТ ДВИЖЕНИЯ ЗАГОЛОВКА
+========================================= */
 
 window.addEventListener(
 "mousemove",
 (event)=>{
 
-    const hero =
-        document.querySelector(".hero");
+    const title =
+        document.querySelector("h1");
 
-    if(!hero) return;
+    if(!title) return;
 
 
     const x =
@@ -2438,16 +2020,11 @@ window.addEventListener(
         window.innerHeight - .5) * 8;
 
 
-    const title =
-        document.querySelector("h1");
+    title.style.marginLeft =
+        x + "px";
 
-
-    if(title){
-
-        title.style.transform =
-            `translate(${x}px,${y}px)`;
-
-    }
+    title.style.marginTop =
+        y + "px";
 
 });
 
